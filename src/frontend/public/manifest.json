@@ -1,0 +1,12 @@
+{
+  "name": "DateAlert",
+  "short_name": "DateAlert",
+  "description": "Never miss an important date",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6c47ff",
+  "icons": [
+    { "src": "/favicon.ico", "sizes": "64x64", "type": "image/x-icon" }
+  ]
+}

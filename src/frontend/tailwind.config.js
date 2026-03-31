@@ -10,14 +10,13 @@ export default {
     container: {
       center: true,
       padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
+      screens: { "2xl": "1400px" },
     },
     extend: {
       fontFamily: {
-        sans: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
-        display: ["DM Serif Display", "Georgia", "serif"],
+        body: ["Figtree", "system-ui", "sans-serif"],
+        display: ["Bricolage Grotesque", "system-ui", "sans-serif"],
+        sans: ["Figtree", "system-ui", "sans-serif"],
       },
       colors: {
         border: "oklch(var(--border))",
@@ -53,6 +52,16 @@ export default {
           DEFAULT: "oklch(var(--card))",
           foreground: "oklch(var(--card-foreground))",
         },
+        warning: {
+          DEFAULT: "oklch(var(--warning))",
+          foreground: "oklch(var(--warning-foreground))",
+          bg: "oklch(var(--warning-bg))",
+        },
+        success: {
+          DEFAULT: "oklch(var(--success))",
+          foreground: "oklch(var(--success-foreground))",
+          bg: "oklch(var(--success-bg))",
+        },
         chart: {
           1: "oklch(var(--chart-1))",
           2: "oklch(var(--chart-2))",
@@ -70,31 +79,20 @@ export default {
           border: "oklch(var(--sidebar-border))",
           ring: "oklch(var(--sidebar-ring))",
         },
-        terracotta: {
-          50: "oklch(0.96 0.03 50)",
-          100: "oklch(0.91 0.06 50)",
-          500: "oklch(0.62 0.15 38)",
-          600: "oklch(0.55 0.17 35)",
-        },
-        forest: {
-          50: "oklch(0.97 0.02 150)",
-          100: "oklch(0.93 0.04 150)",
-          500: "oklch(0.48 0.12 155)",
-          600: "oklch(0.42 0.1 155)",
-          700: "oklch(0.36 0.09 155)",
-        },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-        "2xl": "1rem",
-        "3xl": "1.5rem",
+        xl: "1rem",
+        "2xl": "1.25rem",
+        "3xl": "1.75rem",
       },
       boxShadow: {
-        xs: "0 1px 2px 0 rgba(0,0,0,0.05)",
-        card: "0 2px 8px -1px rgba(30,60,40,0.08), 0 1px 3px -1px rgba(30,60,40,0.06)",
-        "card-hover": "0 8px 24px -4px rgba(30,60,40,0.12), 0 2px 6px -2px rgba(30,60,40,0.08)",
+        xs: "0 1px 2px 0 rgba(0,0,0,0.04)",
+        card: "0 2px 8px -1px rgba(60,40,120,0.07), 0 1px 3px -1px rgba(60,40,120,0.05)",
+        "card-hover": "0 8px 24px -4px rgba(60,40,120,0.13), 0 2px 8px -2px rgba(60,40,120,0.08)",
+        glow: "0 0 20px -4px oklch(0.44 0.18 270 / 0.25)",
       },
       keyframes: {
         "accordion-down": {
@@ -109,16 +107,21 @@ export default {
           from: { opacity: "0", transform: "translateY(16px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
-        "scale-in": {
-          from: { opacity: "0", transform: "scale(0.95)" },
-          to: { opacity: "1", transform: "scale(1)" },
+        "slide-in": {
+          from: { opacity: "0", transform: "translateX(-12px)" },
+          to: { opacity: "1", transform: "translateX(0)" },
+        },
+        "pulse-ring": {
+          "0%, 100%": { boxShadow: "0 0 0 0 oklch(0.78 0.16 75 / 0.4)" },
+          "50%": { boxShadow: "0 0 0 6px oklch(0.78 0.16 75 / 0)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-up": "fade-up 0.4s ease-out forwards",
-        "scale-in": "scale-in 0.3s ease-out forwards",
+        "slide-in": "slide-in 0.35s ease-out forwards",
+        "pulse-ring": "pulse-ring 2s ease-in-out infinite",
       },
     },
   },

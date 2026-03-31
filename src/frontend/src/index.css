@@ -1,38 +1,54 @@
 @font-face {
-  font-family: "DM Serif Display";
-  src: url("/assets/fonts/DMSerifDisplay-Regular.woff2") format("woff2");
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Plus Jakarta Sans";
-  src: url("/assets/fonts/PlusJakartaSans-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Plus Jakarta Sans";
-  src: url("/assets/fonts/PlusJakartaSans-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Plus Jakarta Sans";
-  src: url("/assets/fonts/PlusJakartaSans-SemiBold.woff2") format("woff2");
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque-SemiBold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Plus Jakarta Sans";
-  src: url("/assets/fonts/PlusJakartaSans-Bold.woff2") format("woff2");
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -44,62 +60,72 @@
 
 @layer base {
   :root {
-    /* Warm ivory background */
-    --background: 0.975 0.008 85;
-    --foreground: 0.18 0.025 200;
+    /* Soft off-white background */
+    --background: 0.975 0.006 260;
+    --foreground: 0.18 0.04 260;
 
     /* Cards */
-    --card: 0.995 0.003 85;
-    --card-foreground: 0.18 0.025 200;
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.04 260;
 
     /* Popover */
-    --popover: 0.995 0.003 85;
-    --popover-foreground: 0.18 0.025 200;
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.04 260;
 
-    /* Deep forest green primary */
-    --primary: 0.42 0.1 155;
-    --primary-foreground: 0.98 0.005 85;
+    /* Deep indigo primary */
+    --primary: 0.44 0.18 270;
+    --primary-foreground: 0.99 0.005 260;
 
-    /* Soft sage secondary */
-    --secondary: 0.9 0.04 145;
-    --secondary-foreground: 0.35 0.08 155;
+    /* Soft lavender secondary */
+    --secondary: 0.93 0.04 270;
+    --secondary-foreground: 0.38 0.14 270;
 
     /* Muted */
-    --muted: 0.94 0.015 100;
-    --muted-foreground: 0.52 0.02 200;
+    --muted: 0.95 0.015 260;
+    --muted-foreground: 0.52 0.03 260;
 
-    /* Terracotta accent */
-    --accent: 0.88 0.04 70;
-    --accent-foreground: 0.3 0.07 30;
+    /* Warm sand accent */
+    --accent: 0.94 0.04 80;
+    --accent-foreground: 0.35 0.09 60;
 
     /* Destructive */
     --destructive: 0.55 0.22 25;
-    --destructive-foreground: 0.98 0.005 85;
+    --destructive-foreground: 0.99 0.005 260;
+
+    /* Amber warning for remind-now */
+    --warning: 0.78 0.16 75;
+    --warning-foreground: 0.3 0.1 55;
+    --warning-bg: 0.97 0.06 85;
+
+    /* Success green */
+    --success: 0.55 0.15 155;
+    --success-foreground: 0.99 0.005 155;
+    --success-bg: 0.95 0.05 155;
 
     /* Border & input */
-    --border: 0.88 0.02 130;
-    --input: 0.88 0.02 130;
-    --ring: 0.42 0.1 155;
+    --border: 0.9 0.02 265;
+    --input: 0.9 0.02 265;
+    --ring: 0.44 0.18 270;
 
     /* Radius */
     --radius: 0.75rem;
 
-    /* Chart colors */
-    --chart-1: 0.42 0.1 155;
-    --chart-2: 0.55 0.14 160;
-    --chart-3: 0.65 0.16 150;
-    --chart-4: 0.75 0.1 140;
-    --chart-5: 0.85 0.07 130;
+    /* Chart */
+    --chart-1: 0.44 0.18 270;
+    --chart-2: 0.55 0.15 290;
+    --chart-3: 0.78 0.16 75;
+    --chart-4: 0.55 0.15 155;
+    --chart-5: 0.65 0.18 240;
 
     /* Sidebar */
-    --sidebar: 0.97 0.01 140;
-    --sidebar-foreground: 0.18 0.025 200;
-    --sidebar-primary: 0.42 0.1 155;
-    --sidebar-primary-foreground: 0.98 0.005 85;
-    --sidebar-accent: 0.9 0.04 145;
-    --sidebar-accent-foreground: 0.35 0.08 155;
-    --sidebar-border: 0.88 0.02 130;
-    --sidebar-ring: 0.42 0.1 155;
+    --sidebar: 0.97 0.01 265;
+    --sidebar-foreground: 0.18 0.04 260;
+    --sidebar-primary: 0.44 0.18 270;
+    --sidebar-primary-foreground: 0.99 0.005 260;
+    --sidebar-accent: 0.93 0.04 270;
+    --sidebar-accent-foreground: 0.38 0.14 270;
+    --sidebar-border: 0.9 0.02 265;
+    --sidebar-ring: 0.44 0.18 270;
   }
 
   * {
@@ -107,42 +133,14 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-body;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
   h1,
   h2,
-  h3 {
-    font-family: "DM Serif Display", Georgia, serif;
-  }
-}
-
-@layer utilities {
-  .font-display {
-    font-family: "DM Serif Display", Georgia, serif;
-  }
-
-  .rating-btn {
-    @apply relative flex flex-col items-center justify-center rounded-full transition-all duration-200;
-    @apply w-12 h-12 md:w-14 md:h-14 text-sm font-semibold border-2;
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
-  }
-
-  .rating-btn:hover {
-    transform: translateY(-2px) scale(1.06);
-  }
-
-  .rating-btn.selected {
-    @apply border-primary bg-primary text-primary-foreground shadow-lg;
-    transform: translateY(-2px) scale(1.1);
-  }
-
-  .rating-btn.unselected {
-    @apply border-border bg-card text-muted-foreground;
-  }
-
-  .rating-btn.unselected:hover {
-    @apply border-primary/40 text-foreground bg-secondary/60;
+  h3,
+  h4 {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
   }
 }

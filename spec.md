@@ -1,33 +1,35 @@
-# Self Evaluation App
+# Date Reminder App
 
 ## Current State
-New project. No existing code.
+Reminders have an `eventDate` (YYYY-MM-DD string). The form shows a date picker. Cards display the date and days-until. Notification scheduling is based on date only (midnight).
 
 ## Requested Changes (Diff)
 
 ### Add
-- A self-evaluation questionnaire with 6 health/wellness criteria, each rated 1-5
-- Questions:
-  1. How good is your grip (1=poor, 5=excellent)
-  2. Can you get up and walk after a good night sleep (1=poor, 5=excellent)
-  3. Can you remember any incident 20 years ago (1=poor, 5=excellent)
-  4. Do you perspire after walking for 20 mins (1=poor, 5=excellent)
-  5. Do you like to meet friends once a week (1=poor, 5=excellent)
-  6. Is your skin dull (1=poor, 5=excellent)
-- Interactive 1-5 rating selector for each question
-- Results summary showing total score and per-category feedback
-- Ability to save evaluation results to backend and view history
-- Score interpretation (e.g. overall wellness level)
+- `eventTime?: string` (HH:MM format) field to the Reminder interface
+- Time input (`<input type="time">`) in the AddReminderForm, displayed next to or below the date input
+- Helper `getEventDateTime(r)` that combines eventDate + eventTime into a Date (defaults to 00:00 if no time set)
 
 ### Modify
-- N/A
+- `formatDate` → update to show time alongside date when `eventTime` is set (e.g. "15 Apr 2026, 14:30")
+- `getDaysUntil` → keep date-only logic (days display is still date-based)
+- `getReminderWindowStart` → use `getEventDateTime` so lead time subtracts from the exact event datetime
+- `getStatus` → use exact event datetime for "past" comparison when time is set
+- `ReminderCard` → show time in the date/time row if present
+- Excel export/import → add "Event Time (HH:MM)" column; parse during import; keep backward compat (missing column = no time)
+- `downloadTemplate` → include example times in sample rows
+- Notification body text → include time when available
+- Default reminders → leave eventTime undefined (backward compatible)
 
 ### Remove
-- N/A
+- Nothing removed
 
 ## Implementation Plan
-- Backend: store evaluation submissions with scores per category and timestamp
-- Backend: retrieve past evaluations for a user
-- Frontend: questionnaire UI with 1-5 rating buttons per question
-- Frontend: results page showing score breakdown and interpretation
-- Frontend: history view of past evaluations
+1. Add `eventTime?: string` to `Reminder` interface
+2. Add `getEventDateTime(r: Reminder): Date` helper
+3. Update `getReminderWindowStart` and `getStatus` to use `getEventDateTime`
+4. Update `formatDate` to accept optional time and format as "15 Apr 2026, 14:30"
+5. Update `AddReminderForm` — add `eventTime` state and `<input type="time">` field below the date field
+6. Update `ReminderCard` date display to show time if present
+7. Update notification body to include time
+8. Update Excel export/import to handle `Event Time (HH:MM)` column
